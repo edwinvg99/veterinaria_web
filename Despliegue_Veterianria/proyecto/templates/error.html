@@ -1,0 +1,31 @@
+<!-- error.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Error</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link type="text/css" href="{% static 'css/error.css' %}" rel="stylesheet">
+<script src="{% static 'js/hola.js' %}"></script>
+
+
+</head>
+<body>
+    <div class="modal-container">
+        <div class="modal-content">
+            {{ error_message }}
+
+        <button  onclick="volver()" class="volver">Volver</button>
+
+        </div>
+
+    </div>
+
+    
+        
+    
+    
+</body>
+</html>

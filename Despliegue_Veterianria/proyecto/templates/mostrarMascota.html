@@ -1,0 +1,41 @@
+{% extends 'plantillas.html' %}
+
+{% block titulo %}Mascotas{% endblock titulo %}
+
+{% block login %}{% endblock login %}
+{% block facturaDatos %}{% endblock facturaDatos %}
+{% block tabla %}
+
+<h1 class='titulo'>Template de listado de Mascotas</h1>
+
+    <table border="2">
+        <thead>
+            <tr>
+                <th> id </th>
+                <th> Nombre </th>
+                <th> cedula dueño </th>
+                <th> edad </th>
+                <th> especie </th>
+                <th> raza </th>
+                <th> caracteristicas </th>
+                <th> peso </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for mascota in mascotas %}
+                <tr>
+                    <td>{{mascota.id }}</td>
+                    <td>{{mascota.nombre}}</td>
+                    <td>{{mascota.dueño}}</td>
+                    <td>{{mascota.edad}}</td>
+                    <td>{{mascota.especie}}</td>
+                    <td>{{mascota.raza}}</td>
+                    <td>{{mascota.caracteristica}}</td>
+                    <td>{{mascota.peso}}</td>
+                </tr>
+            {% endfor %}
+        </tbody
+    </table>  
+    {% endblock tabla %}
+

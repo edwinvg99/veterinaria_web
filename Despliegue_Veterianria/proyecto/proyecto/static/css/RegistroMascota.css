@@ -1,0 +1,83 @@
+.RegistroMascota3 {
+    background-color: rgb(229, 232, 232);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.64);
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    
+  }
+  
+  .RegistroMascota3 h2 {
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .RegistroMascota3 label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .RegistroMascota3 input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 2px;
+    font-size: 16px;
+  }
+  
+  .RegistroMascota3 button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 10px;
+  }
+  
+  .RegistroMascota3 button:hover {
+    background-color: #555;
+  }
+
+  .button{
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 10px;
+  }
+  .button:hover{
+    background-color: #555;
+    color: #fff;
+
+  }
+  
+  .RegistroMascota3 p {
+    margin-top: 10px
+  }
+
+
+
+
+  @media screen and (max-width: 768px) {
+    .RegistroMascota3 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      height: calc(85vh - 150px); /* Resta 150px a la altura total para dejar espacio para el header y el footer */
+      padding: 10px; /* Agrega un espacio interno para dispositivos más pequeños */
+      
+
+    }
+}

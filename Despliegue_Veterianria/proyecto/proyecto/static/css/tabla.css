@@ -1,0 +1,33 @@
+
+table {
+    border-collapse: collapse;
+    margin: 1rem auto;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+th, td {
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+
+th {
+    background-color: #308866ec;
+    color: #fff;
+    }
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+    }
+
+a {
+    color: #333333;
+    text-decoration: none;
+    }
+
+a:hover {
+    color: #666;
+    }
+

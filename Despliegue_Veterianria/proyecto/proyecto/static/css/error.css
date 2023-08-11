@@ -1,0 +1,79 @@
+.modal-container {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fade-in 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: #ffffff17;
+    color: #ffffff;
+    font-size: 5vw;
+    padding: 2vw;
+    border-radius: 5px;
+    text-align: justify;
+    width: 80%;
+    height: auto;
+    max-height: 80%;
+    animation: slide-up 0.3s ease-in-out;
+    box-shadow: 0px 0px 200px rgba(240, 7, 7, 0.64);
+}
+
+.volver {
+    background-color: rgb(247, 247, 247);
+    color: rgb(253, 0, 0);
+    border-radius: 5px;
+    width: 10%;
+    height: 25%;
+    float: right;
+    font-size: 29px;
+    margin-top: 5%;
+    box-shadow: 0px 0px 10px rgba(115, 18, 18, 0.496);
+    transition: transform 0.3s ease;
+
+
+}
+.volver:hover{
+    background-color: rgb(250, 0, 0);
+    color: rgb(248, 248, 248);
+    transform: translateY(-10px);
+
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 40;
+    }
+    to {
+        opacity: 20;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(40%);
+    }
+    to {
+        transform: translate(90);
+    }
+}
+@media screen and (max-width: 768px) {
+    .modal-content {
+        font-size: 10vw; /* Tamaño de fuente relativo al ancho de la pantalla */
+        padding: 5vw; /* Espaciado relativo al ancho de la pantalla */
+        width: 90%;
+    }
+
+    .volver {
+        width: 30%;
+        height: 15%;
+    }
+}

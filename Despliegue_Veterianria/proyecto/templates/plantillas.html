@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Listado de personas{% endblock titulo %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" href="{% static 'css/normalize.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/login.css' %}" rel="stylesheet">
+
+    <link type="text/css" href="{% static 'css/principal2.css' %}" rel="stylesheet">
+
+    <link type="text/css" href="{% static 'css/tabla.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/header.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/footer.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/botones.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/RegistroMascota.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/titulos.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/ventaSinOrden.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/CrearFacturaSinOrden.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/RegistrarHistoriaClinica.css' %}" rel="stylesheet">
+
+
+
+
+
+    <script src="{% static 'js/hola.js' %}"></script>
+</head>
+<body>
+    {% block header %}
+    <header class="header">
+        <div class="logo">
+            <a href="http://127.0.0.1:8000/login">House of animal</a>
+        </div>
+        <nav class="nav">
+            <a href="#">Inicio</a>
+            <a href="#">Acerca de</a>
+            <a href="#">Contacto</a>
+
+            {% block boton_cerrar_sesion %}
+            <!-- Enlace para cerrar sesión -->
+            <a href="{% url 'cerrar_sesion' %}" style="color: red;">Cerrar sesión</a>
+            {% endblock boton_cerrar_sesion %}
+        </nav>
+    </header>
+    {% endblock header %}
+
+    <main>
+        {% block cuerpo %}
+        <div class="principal">
+            {% block login %}
+            <div class="login">
+                <form method="POST" class="login-form" action="{% url 'login2' %}">
+                    {% csrf_token %}
+                    <h2>Iniciar sesión</h2>
+
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
+
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+
+                    <button type="submit">Iniciar sesión</button>
+                    <p>¿No tienes una cuenta?
+                        <a style="color: rgb(44, 44, 156);" href="http://127.0.0.1:8000/crearPersonahtml/">Regístrate aquí</a>
+                    </p>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="error">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                </form>
+            </div>
+
+            {% endblock login %}
+
+
+
+            {% block facturaDatos %}
+        <div class="datos">
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{Factura.nombreProducto}}</td>
+                </tr>
+                <tr>
+                    <th>Cantidad</th>
+                    <td>{{Factura.cantidad}}</td>
+                </tr>
+                <tr>
+                    <th>Valor</th>
+                    <td>{{Factura.valor}}</td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <td>{{Factura.total}}</td>
+                </tr>
+            </table>
+            <a href="/crearFacturaSINordenHtml/{{vendedor.usuario}}" class="volver">Volver</a>
+        </div>
+        {% endblock facturaDatos %}
+
+
+
+        
+            {% block botones %}            <div class="botones-container">
+                {% block titulos %}
+                <h1 class="titulos">Menu algo</h1>
+                {% endblock titulos %}
+
+                {% block botones_veterinario %}
+                <a href="http://127.0.0.1:8000/RegistrarMascota/{{veterinario.usuario}} "class="boton_vete">Registrar mascota</a>
+                <a href="http://127.0.0.1:8000/RegistrarHistoriaClinica/{{veterinario.usuario}} "class="boton_vete">Registrar historia clinica</a>
+                <a href="#" class="boton_vete">Consultar historia clinica</a>
+                <a href="#" class="boton_vete">Crear orden</a>
+                <a href="#" class="boton_vete">Anular Orden</a>
+                {% block botones_compartidos %}
+                <a href="#" class="boton_vete">Consultar ordenes</a>
+                {% endblock botones_compartidos %}
+                
+                <div class="imagenBotones">
+                    <img id="perro" src="{% static 'imagenes/perro.png' %}">
+                </div>
+                {% endblock botones_veterinario %}
+
+                {% block botones_vendedor %}
+
+                <a href="http://127.0.0.1:8000/crearFacturaSINordenHtml/{{vendedor.usuario}} "class="boton_vete">Vender producto (sin orden)</a>
+
+                <a href="#" class="boton_vete">Vender medicamento (con orden)</a>
+
+                <div class="imagenBotones">
+                    <img id="bu" src="{% static 'imagenes/fondoBotones.png' %}">
+                </div>
+                {% endblock botones_vendedor %}
+            </div>
+            {% endblock botones %}
+
+            {% block tabla %}
+            <div class="tabla">
+                <h1 class="titulo">Template de listado de xxx</h1>
+                <table border="2">
+                    <thead>
+                        <tr>
+                            <th>campo</th>
+                            <th>campo</th>
+                            <th>campo</th>
+                            <th>campo</th>
+                            <th>campo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for clase in variable_plural_clase %}
+                        <tr>
+                            <td>{{ clase.campo }}</td>
+                            <td>{{ clase.campo }}</td>
+                            <td>{{ clase.campo }}</td>
+                            <td>{{ clase.campo }}</td>
+                            <td>{{ clase.campo }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endblock tabla %}
+        </div>
+        {% endblock cuerpo %}
+
+        
+    </main>
+    <footer>
+        <div class="contenedor_Footer">
+            <div class="menu-footer">
+                <ul class="lista-menu">
+                    <li><a href="#" class="lista-items">Acerca de</a></li>
+                    <li><a href="#" class="lista-items">Contacto</a></li>
+                    <li><a href="#" class="lista-items">Política de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="copirait">
+                <p class="texto-copirait">© 2023 Edwin y Mariana. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

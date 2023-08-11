@@ -1,0 +1,67 @@
+{% extends 'plantillas.html' %}
+
+{% block botones %}{% endblock botones %}
+{% block titulos %}{% endblock titulos %}
+{% block facturaDatos %}{% endblock facturaDatos %}
+{% block login %}
+
+<div class="RegistroMascota1">
+    <div class="RegistroMascota2"> 
+        <form class="RegistroMascota3" action="/CrearMascota/{{veterinario.usuario}}" method="GET" id="formulario-mascota">
+
+            <h2>Registro mascota</h2>
+
+            <label for="id"></label>
+            <input type="number" id="id" name="id"  placeholder="Ingrese el ID " >
+            
+            <label for="nombre"></label>
+            <input type="text" id="nombre" name="nombre"  placeholder="Ingrese el nombre"  required>
+
+            <label for="especie"></label>
+            <input type="text" id="especie" name="especie"   placeholder="Ingrese la especie"required>
+
+            <label for="raza"></label>
+            <input type="text" id="raza" name="raza"   placeholder="Ingrese la raza"required>
+
+            <label for="caracteristicas"></label>
+            <input type="text" id="caracteristicas" name="caracteristicas"   placeholder="Ingrese las caracteristicas"required>
+
+            <label for="peso"></label>
+            <input type="number" id="peso" name="peso"   placeholder="Ingrese el peso en kg"required>
+
+            <label for="cedula_dueno"></label>
+            <input type="number" id="cedula_dueno" name="cedula_dueno"  placeholder="Ingrese la cedula del dueño"  required>
+
+            <label for="edad"></label>
+            <input type="number" id="edad" name="edad"  placeholder="Ingrese la edad"  required>
+
+
+            <button type="submit">Crear</button>
+
+            <a href="/inicioVeterinario/{{veterinario.usuario}}" class="button" >volver</a>
+
+
+
+
+            {% if messages %}
+                        {% for message in messages %}
+                            <p class="error">{{ message }}</p>
+                        {% endfor %}
+            {% endif %}
+            
+        </form>
+        
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+
+{% endblock login %}
+
+{% block tabla %}{% endblock tabla %}
+{% block botones_vendedor %}{% endblock botones_vendedor %}
+{% block botones_veterinario %}{% endblock botones_veterinario %}

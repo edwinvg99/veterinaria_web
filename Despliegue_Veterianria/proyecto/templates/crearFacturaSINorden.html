@@ -1,0 +1,52 @@
+{% extends 'plantillas.html' %}
+
+{% block botones_veterinario %}{% endblock botones_veterinario %}
+{% block botones_vendedor %}{% endblock botones_vendedor %}
+{% block tabla %}{% endblock tabla %}
+{% block titulos %}{% endblock titulos %}
+{% block facturaDatos %}{% endblock facturaDatos %}
+{% block login %}
+
+<div class="Registrofactura1">
+    <div class="Registrofactura2"> 
+        <form class="Registrofactura3" action="/crearFacturaSINorden/{{vendedor.usuario}}" method="GET" id="formulario-mascota">
+
+            <h2>Venta sin  orden</h2>
+
+            <label for="idFactura"></label>
+            <input type="number" id="idFactura" name="idFactura"  placeholder="ID factura " >
+            
+            <label for="idCliente"></label>
+            <input type="number" id="idCliente" name="idCliente"  placeholder="ID cliente " >
+            
+            <label for="nombreProducto"></label>
+            <input type="text" id="nombreProducto" name="nombreProducto"   placeholder="Ingrese el nombre del Producto"required>
+
+            <label for="valor"></label>
+            <input type="number" id="valor" name="valor"   placeholder="Ingrese el valor"required>
+
+            <label for="cantidad"></label>
+            <input type="number" id="cantidad" name="cantidad"  placeholder="Ingrese la cantidad"  required>
+
+
+            <button type="submit">vender</button>
+
+            <a href="/inicioVendedor/{{vendedor.usuario}}" class="button" >volver</a>
+
+
+
+
+            {% if messages %}
+                        {% for message in messages %}
+                            <p class="error">{{ message }}</p>
+                        {% endfor %}
+            {% endif %}
+            
+        </form>
+        
+    </div>
+</div>
+
+{% endblock login %}
+
+

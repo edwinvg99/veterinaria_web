@@ -1,0 +1,40 @@
+{% extends 'plantillas.html' %}
+
+{% block titulo %}crear persona{% endblock titulo %}
+
+{% block login %}{% endblock login %}
+{% block botones %}{% endblock botones %}
+{% block facturaDatos %}{% endblock facturaDatos %}
+
+{% block tabla %}
+
+
+<h1 class='titulo'>Template de listado de personas</h1>
+
+    <table border="2">
+        <thead>
+            <tr>
+                <th> Cedula </th>
+                <th> Nombre </th>
+                <th> Rol </th>
+                <th> Usuario </th>
+                <th> Contraseña </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for persona in personas %}
+                <tr>
+                    <td>{{persona.cedula }}</td>
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.rol}}</td>
+                    <td>{{persona.usuario}}</td>
+                    <td>{{persona.contraseña}}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody
+    </table>  
+{% endblock tabla %}
+
